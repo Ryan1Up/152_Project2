@@ -3,35 +3,36 @@ package com.ryan.csci152.classes;
 import com.ryan.csci152.interfaces.Broker;
 import com.ryan.csci152.interfaces.IAssessment;
 import com.ryan.csci152.interfaces.Party;
+import com.ryan.csci152.interfaces.Question;
 
-import java.util.List;
+import java.util.Map;
 
 public class Alex implements Party {
 
     private String name;
     private Broker roster;
 
-    private List<IAssessment> assessments;
+    private Map<Question, Integer> answerKey;
 
     Alex(String name, Broker roster){
         this.name = name;
         this.roster = roster;
     }
 
-    void publishAssessment(IAssessment assessment){
-        roster.publish(assessment);
+    public void addQuestion(String question, Integer correctAnswer){
+        answerKey.put(new AssessmentQuestion(question), correctAnswer);
     }
 
-    void addAssessment(IAssessment assessment) {
-        if (!this.assessments.contains(assessment)) {
-            this.assessments.add(assessment);
+    public void addQuestionSet(Map<String, Integer> questionSet){
+        for(String q : questionSet.keySet()){
+            answerKey.put(new AssessmentQuestion(q), questionSet.get(q));
         }
     }
-
     /*Update party of assessment completion*/
     @Override
     public void updateParty(IAssessment assessment) {
         /*Grade assignment, then publish results*/
+        StudentBase
     }
 
     @Override
@@ -47,6 +48,8 @@ public class Alex implements Party {
     private void gradeAssessment(IAssessment assessment){
 
     }
+
+
 
 
 }

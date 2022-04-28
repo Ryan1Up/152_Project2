@@ -31,7 +31,7 @@ public class Student extends StudentBase {
     }
 
     public void submitAssignment(){
-        currentAssignment.notifyPublisher();
+        currentAssignment.submit();
         currentAssignment = null;
     }
 

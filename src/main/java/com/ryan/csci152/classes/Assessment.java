@@ -27,6 +27,7 @@ public class Assessment implements IAssessment, Iterable {
         this.iterator = this.questions.iterator();
     }
 
+
     @Override
     public Question nextQuestion() {
         if(iterator().hasNext()){
@@ -44,6 +45,11 @@ public class Assessment implements IAssessment, Iterable {
     @Override
     public void setSubscriber(Party subscriber) {
         this.subscriber = subscriber;
+    }
+
+    @Override
+    public Party getSubscriber() {
+        return subscriber;
     }
 
     @Override
