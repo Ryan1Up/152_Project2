@@ -26,6 +26,7 @@ public class AssessmentBroker implements Broker {
     @Override
     public void publishAssessment(Assessment assessment) {
         for(Student s : subscribers){
+            System.out.println(("Broker Sending assignment to: %s").formatted(s.getName()));
             s.assign(assessment);
         }
     }
@@ -34,7 +35,8 @@ public class AssessmentBroker implements Broker {
     public void publishResults(IReport report) {
         for(Student s : subscribers){
             if(s.getId().equals(report.getId())){
-                s.
+                System.out.println(("Broker Sending results to: %s").formatted(s.getName()));
+                s.sendResults(report);
             }
         }
     }

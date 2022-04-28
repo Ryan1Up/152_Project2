@@ -23,11 +23,15 @@ public class CSCI152Student extends Student{
 
     @Override
     public void assign(Assessment assessment) {
+        System.out.println(getName() + " getting assignment");
         this.assessment = assessment;
+        this.assessment.setAssigneeId(getId());
+        this.doAssessment();
     }
 
     @Override
     public void submit() {
+        System.out.println(("Submitting assignment from: %s").formatted(getName()));
         grader.gradeAssessment(this.assessment);
     }
 
@@ -38,6 +42,7 @@ public class CSCI152Student extends Student{
 
     @Override
     public void doAssessment() {
+        System.out.println("Assignment in progress");
         testTaker.doAssessment(assessment);
         submit();
     }
@@ -45,6 +50,9 @@ public class CSCI152Student extends Student{
     @Override
     public void sendResults(IReport results) {
         this.results = results;
+        System.out.println(("Results received for: %s").formatted(getName()));
+        System.out.println("Printing out Results...\n\n");
+
         System.out.println(results.getDescription());
     }
 

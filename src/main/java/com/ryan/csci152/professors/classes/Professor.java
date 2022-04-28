@@ -2,10 +2,10 @@ package com.ryan.csci152.professors.classes;
 
 import com.ryan.csci152.Util.interfaces.AssessmentGrader;
 import com.ryan.csci152.assessments.interfaces.Assessment;
+import com.ryan.csci152.assessments.interfaces.IReport;
 import com.ryan.csci152.brokers.interfaces.Broker;
 import com.ryan.csci152.professors.interfaces.Grader;
 import com.ryan.csci152.professors.interfaces.Publisher;
-import com.ryan.csci152.students.classes.Student;
 
 public class Professor implements Publisher, Grader{
 
@@ -26,23 +26,28 @@ public class Professor implements Publisher, Grader{
 
     @Override
     public void publishAssessment() {
+        System.out.println("Publishing Assessment");
         broker.publishAssessment(assessment);
     }
 
     @Override
     public void setAssessment(Assessment assessment) {
-
+        System.out.println("Setting Assessment");
+        this.assessment = assessment;
     }
 
     @Override
-    public void subscribe(Student student) {
-        this.broker.addSubscriber(student);
+    public Broker getBroker(){
+        return broker;
     }
 
 
     @Override
     public void gradeAssessment(Assessment assessment) {
-        broker.publishResults(grader.gradeAssessment(assessment));
+        System.out.println("Grading Assessment");
+        IReport results = grader.gradeAssessment(assessment);
+        System.out.println("Publishing Results");
+        broker.publishResults(results);
     }
 
 }

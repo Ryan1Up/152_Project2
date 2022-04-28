@@ -8,8 +8,8 @@ import java.util.Map;
 
 public interface AssessmentGrader<Value> {
 
-    IReport gradeAssessment(Assessment assessment);
+    IReport gradeAssessment(Assessment<Value> assessment);
 
-    void setAnswerKey(Map<IQuestion, Value> answerKey);
+    void setAnswerKey(Map<IQuestion<Value>, Value> answerKey);
 
 }

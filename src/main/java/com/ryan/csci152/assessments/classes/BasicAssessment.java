@@ -24,6 +24,13 @@ public class BasicAssessment<Value> implements Assessment<Value> {
         }
     }
 
+    public void addQuestions(List<IQuestion<Value>> questionList){
+        for(IQuestion q : questionList){
+            if(!this.questionList.contains(q)){
+                this.questionList.add(q);
+            }
+        }
+    }
     @Override
     public Iterator<IQuestion<Value>> iterator() {
         return questionList.iterator();

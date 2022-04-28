@@ -12,13 +12,13 @@ import java.util.Map;
 
 public class GraderUtil<Value> implements AssessmentGrader<Value> {
 
-    Map<IQuestion, Value> answerKey;
+    Map<IQuestion<Value>, Value> answerKey;
 
     @Override
-    public IReport gradeAssessment(Assessment assessment) {
+    public IReport gradeAssessment(Assessment<Value> assessment) {
         Integer total = 0;
         StringBuilder desc = new StringBuilder();
-        for(IQuestion q : answerKey.keySet()) {
+        for(IQuestion<Value> q : answerKey.keySet()) {
 
             if (answerKey.get(q).equals(q.getAnswer())) {
                 total++;
@@ -39,7 +39,7 @@ public class GraderUtil<Value> implements AssessmentGrader<Value> {
                 "\n";
     }
     @Override
-    public void setAnswerKey(Map<IQuestion, Value> answerKey) {
+    public void setAnswerKey(Map<IQuestion<Value>, Value> answerKey) {
         this.answerKey = new HashMap<>(answerKey);
     }
 }
