@@ -2,10 +2,8 @@ package com.ryan.csci152.classes;
 
 import com.ryan.csci152.interfaces.IAssessment;
 import com.ryan.csci152.interfaces.IReports;
-import com.ryan.csci152.interfaces.IStudent;
-import com.ryan.csci152.interfaces.Party;
 
-public class Student implements Party, IStudent {
+public class Student extends StudentBase {
 
     private IAssessment currentAssignment;
     private String name;
@@ -40,5 +38,10 @@ public class Student implements Party, IStudent {
     @Override
     public void updateResults(IReports results) {
         this.results = results;
+    }
+
+    @Override
+    public String getResults() {
+        return results.getReportAsString();
     }
 }

@@ -35,10 +35,6 @@ public class Assessment implements IAssessment, Iterable {
         return null;
     }
 
-    @Override
-    public void notifyPublisher() {
-        publisher.updateParty(this);
-    }
 
     @Override
     public void setPublisher(Party publisher) {
@@ -48,6 +44,14 @@ public class Assessment implements IAssessment, Iterable {
     @Override
     public void setSubscriber(Party subscriber) {
         this.subscriber = subscriber;
+    }
+
+    @Override
+    public void submit() {
+        notifyPublisher();
+    }
+    private void notifyPublisher() {
+        publisher.updateParty(this);
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Roster implements Broker{
 
-    List<Party> subscribers;
+    List<StudentBase> subscribers;
 
     @Override
     public void publish(IAssessment assessment) {
@@ -20,15 +20,15 @@ public class Roster implements Broker{
 
     @Override
     public void publish(IReports report) {
-        for(Party s: subscribers){
+        for(StudentBase s: subscribers){
             if(report.getSubscriber().equals(s)){
-                s.
+                s.updateResults(report);
             }
         }
     }
 
     @Override
-    public void subscribe(Party party) {
+    public void subscribe(StudentBase party) {
         if(!subscribers.contains(party)){
             subscribers.add(party);
         }
