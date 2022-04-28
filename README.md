@@ -19,7 +19,7 @@ this emulates a multiple choice style question, and a Question Set, that is a se
 first type of questions.    
    
 **Exam Process:**    
-This project will emulate test taking in a way. 'Alex' will publish an assessment, then     
-each student that is subscribed will then take the assessment. Upon completion,    
-the assessment is 'returned' to 'Alex' for grading. When grading is complete,     
+This project will emulate test taking in a way. 'Alex' will publish an IAssessment, then     
+each student that is subscribed will then take the IAssessment. Upon completion,    
+the IAssessment is 'returned' to 'Alex' for grading. When grading is complete,     
 a report summarizing performance will be sent to back to each student.    
