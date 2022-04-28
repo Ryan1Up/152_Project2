@@ -1,7 +1,14 @@
 package com.ryan.csci152.assessments.interfaces;
 
-public interface Assessment<Key> {
+import java.util.Iterator;
+import java.util.UUID;
 
-    IQuestion getQuestion(Key question);
+public interface Assessment<Value> extends Iterable<IQuestion<Value>> {
 
+    @Override
+    Iterator<IQuestion<Value>> iterator();
+
+    void setAssigneeId(UUID id);
+
+    UUID getAssigneeId();
 }

@@ -1,8 +1,18 @@
 package com.ryan.csci152;
 
+import com.ryan.csci152.Util.classes.GraderUtil;
+import com.ryan.csci152.brokers.classes.AssessmentBroker;
+import com.ryan.csci152.professors.classes.Professor;
+
 public class Controller{
 
     public static void main(String[] args){
-        System.out.println("Success");
+
+        Professor alex
+                = new Professor("Alex",
+                new AssessmentBroker(),
+                new GraderUtil<>());
+
+
     }
 }

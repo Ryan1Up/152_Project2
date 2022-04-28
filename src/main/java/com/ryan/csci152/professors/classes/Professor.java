@@ -5,8 +5,9 @@ import com.ryan.csci152.assessments.interfaces.Assessment;
 import com.ryan.csci152.brokers.interfaces.Broker;
 import com.ryan.csci152.professors.interfaces.Grader;
 import com.ryan.csci152.professors.interfaces.Publisher;
+import com.ryan.csci152.students.classes.Student;
 
-public class Professor<Key, Value> implements Publisher, Grader {
+public class Professor implements Publisher, Grader{
 
     private String name;
 
@@ -14,9 +15,10 @@ public class Professor<Key, Value> implements Publisher, Grader {
 
     private Assessment assessment;
 
-    private AssessmentGrader<Key, Value> grader;
+    private final AssessmentGrader grader;
 
-    public Professor(String name, Broker broker, AssessmentGrader<Key, Value> grader) {
+
+    public Professor(String name, Broker broker, AssessmentGrader grader) {
         this.name = name;
         this.broker = broker;
         this.grader = grader;
@@ -29,7 +31,12 @@ public class Professor<Key, Value> implements Publisher, Grader {
 
     @Override
     public void setAssessment(Assessment assessment) {
-        this.assessment = assessment;
+
+    }
+
+    @Override
+    public void subscribe(Student student) {
+        this.broker.addSubscriber(student);
     }
 
 
@@ -37,4 +44,5 @@ public class Professor<Key, Value> implements Publisher, Grader {
     public void gradeAssessment(Assessment assessment) {
         broker.publishResults(grader.gradeAssessment(assessment));
     }
+
 }

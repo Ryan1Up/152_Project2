@@ -1,8 +1,8 @@
 package com.ryan.csci152.assessments.interfaces;
 
-public interface IQuestion<Key, Value> {
+public interface IQuestion<Value> {
 
-    Key getQuestion();
+    String getQuestion();
 
     Value getAnswer();
 

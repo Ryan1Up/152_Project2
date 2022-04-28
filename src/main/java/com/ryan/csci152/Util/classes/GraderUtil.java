@@ -10,36 +10,36 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class GraderUtil<Key, Value> implements AssessmentGrader<Key, Value> {
+public class GraderUtil<Value> implements AssessmentGrader<Value> {
 
-    Map<Key, Value> answerKey;
+    Map<IQuestion, Value> answerKey;
 
     @Override
     public IReport gradeAssessment(Assessment assessment) {
         Integer total = 0;
-        String desc = "";
-        for(Key q : answerKey.keySet()) {
-            IQuestion<Key, Value> question = assessment.getQuestion(q);
-            if (answerKey.get(q).equals(question.getAnswer())) {
+        StringBuilder desc = new StringBuilder();
+        for(IQuestion q : answerKey.keySet()) {
+
+            if (answerKey.get(q).equals(q.getAnswer())) {
                 total++;
             }
-            desc += stringifyDesc(question, q);
+            desc.append(stringifyDesc(q));
         }
-        desc += ("Total: %d/%d").formatted(total, answerKey.keySet().size());
+        desc.append(("Total: %d/%d").formatted(total, answerKey.keySet().size()));
 
-        return new Report(total, desc);
+        return new Report(total, desc.toString(), assessment.getAssigneeId());
     }
 
-    private String stringifyDesc(IQuestion question, Key key){
+    private String stringifyDesc(IQuestion question){
         return ("%s").formatted(question.getQuestion()) +
                 ("\nYour Answer: %s").formatted(question.getAnswer()) +
-                ("\nCorrect Answer %s").formatted(answerKey.get(key)) +
+                ("\nCorrect Answer %s").formatted(answerKey.get(question)) +
                 ("\nResult: %s")
-                        .formatted((answerKey.get(key).equals(question.getAnswer())) ? "Correct" : "Incorrect") +
+                        .formatted((answerKey.get(question).equals(question.getAnswer())) ? "Correct" : "Incorrect") +
                 "\n";
     }
     @Override
-    public void setAnswerKey(Map<Key, Value> answerKey) {
+    public void setAnswerKey(Map<IQuestion, Value> answerKey) {
         this.answerKey = new HashMap<>(answerKey);
     }
 }
