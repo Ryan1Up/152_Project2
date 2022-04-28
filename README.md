@@ -14,7 +14,7 @@ In this project there will be 2 types of parties. 'Alex' the professor who will 
 Students who can subscribe and take the assessments.   
     
 **Assessments:**    
-There are 2 kinds of assessments, a questiong that will accept an integer ranging from 1 to 5,   
+There are 2 kinds of assessments, a question that will accept an integer ranging from 1 to 5,   
 this emulates a multiple choice style question, and a Question Set, that is a set of the     
 first type of questions.    
    
