@@ -4,6 +4,10 @@ public interface IAssessment {
 
     Question nextQuestion();
 
-    void notifyAlex();
+    void notifyPublisher();
+
+    void setPublisher(Party publisher);
+
+    void setSubscriber(Party subscriber);
 
 }

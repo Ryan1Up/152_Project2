@@ -11,4 +11,8 @@ public interface IReports {
     String getReportAsString();
 
     void setResults(Map<Question, Integer> results);
+
+    void setSubscriber(Party subscriber);
+
+    Party getSubscriber();
 }

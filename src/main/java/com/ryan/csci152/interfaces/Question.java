@@ -7,4 +7,5 @@ public interface Question {
     void setAnswer(int answer);
 
     int getAnswer();
+
 }

@@ -8,10 +8,13 @@ import java.util.List;
 
 public class Alex implements Party {
 
-    Broker roster;
-    List<IAssessment> assessments;
+    private String name;
+    private Broker roster;
 
-    Alex(Broker roster){
+    private List<IAssessment> assessments;
+
+    Alex(String name, Broker roster){
+        this.name = name;
         this.roster = roster;
     }
 
@@ -25,9 +28,20 @@ public class Alex implements Party {
         }
     }
 
+    /*Update party of assessment completion*/
     @Override
     public void updateParty(IAssessment assessment) {
+        /*Grade assignment, then publish results*/
+    }
 
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     private void gradeAssessment(IAssessment assessment){

@@ -4,7 +4,9 @@ public interface Broker {
 
     void publish(IAssessment assessment);
 
-    void subscribe(Party student);
+    void publish(IReports report);
+
+    void subscribe(Party party);
 
 
 }
