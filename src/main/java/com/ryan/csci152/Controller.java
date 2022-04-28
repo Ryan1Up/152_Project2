@@ -37,22 +37,23 @@ public class Controller{
         Question<Integer> q4 = new Question<>(question4, answer4);
         answerKey.put(q4, answer4);
 
+        /* Make answer Key */
         graderUtil.setAnswerKey(answerKey);
+
         Assessment<Integer> newAssessment = new BasicAssessment<>();
         newAssessment.addQuestions(List.of(q1, q2, q3, q4));
 
         Professor alex
                 =   new Professor("Alex",
-                    new AssessmentBroker(),
-                    graderUtil);
+                    new AssessmentBroker());
 
         Student ryan = new CSCI152Student("Ryan", alex);
 
-//        alex.subscribe(ryan);
+        /* Student subscribe to professor*/
         alex.getBroker().addSubscriber(ryan);
 
-        alex.setAssessment(newAssessment);
-        alex.publishAssessment();
+        /* Professor Publishes assignment*/
+        alex.publishAssessment(newAssessment, graderUtil);
 
     }
 }

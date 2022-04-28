@@ -1,5 +1,6 @@
 package com.ryan.csci152.professors.classes;
 
+import com.ryan.csci152.Util.classes.GraderUtil;
 import com.ryan.csci152.Util.interfaces.AssessmentGrader;
 import com.ryan.csci152.assessments.interfaces.Assessment;
 import com.ryan.csci152.assessments.interfaces.IReport;
@@ -13,27 +14,21 @@ public class Professor implements Publisher, Grader{
 
     private final Broker broker;
 
-    private Assessment assessment;
-
-    private final AssessmentGrader grader;
+    private AssessmentGrader grader;
 
 
-    public Professor(String name, Broker broker, AssessmentGrader grader) {
+    public Professor(String name, Broker broker) {
         this.name = name;
         this.broker = broker;
-        this.grader = grader;
     }
 
+
+
     @Override
-    public void publishAssessment() {
+    public void publishAssessment(Assessment assessment, AssessmentGrader grader) {
         System.out.println("Publishing Assessment");
+        this.grader = grader;
         broker.publishAssessment(assessment);
-    }
-
-    @Override
-    public void setAssessment(Assessment assessment) {
-        System.out.println("Setting Assessment");
-        this.assessment = assessment;
     }
 
     @Override

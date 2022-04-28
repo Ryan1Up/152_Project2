@@ -21,6 +21,7 @@ public class CSCI152Student extends Student{
         this.grader = grader;
     }
 
+    /* The 'student' gets assigned the assessment*/
     @Override
     public void assign(Assessment assessment) {
         System.out.println(getName() + " getting assignment");
@@ -29,6 +30,7 @@ public class CSCI152Student extends Student{
         this.doAssessment();
     }
 
+    /*Return to the 'professor' for grading*/
     @Override
     public void submit() {
         System.out.println(("Submitting assignment from: %s").formatted(getName()));
@@ -40,6 +42,8 @@ public class CSCI152Student extends Student{
         this.grader = grader;
     }
 
+    /* I didn't program anything to interactively take the test
+    * So i made a randomized answering utility*/
     @Override
     public void doAssessment() {
         System.out.println("Assignment in progress");
@@ -47,6 +51,8 @@ public class CSCI152Student extends Student{
         submit();
     }
 
+    /*'sendResults' is for the broker to understand that the
+    * results are being sent to the student*/
     @Override
     public void sendResults(IReport results) {
         this.results = results;
