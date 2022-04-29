@@ -8,6 +8,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+/*
+* Assessment is Essentially like a 'Test'. It
+* contains the identifying information
+* of the student who took the assessment,
+* and the list of questions the assessment is assigned.
+*
+* This class only has to know about the existence of the
+* IQuestion interface, but does not call any IQuestion
+* methods.
+* */
 public class BasicAssessment<Value> implements Assessment<Value> {
 
     /*Not doing a tree structure, I personally feel that a bit too much
@@ -31,7 +41,7 @@ public class BasicAssessment<Value> implements Assessment<Value> {
     }
 
     public void addQuestions(List<IQuestion<Value>> questionList){
-        for(IQuestion q : questionList){
+        for(IQuestion<Value> q : questionList){
             if(!this.questionList.contains(q)){
                 this.questionList.add(q);
             }

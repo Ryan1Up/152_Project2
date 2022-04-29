@@ -8,6 +8,10 @@ import com.ryan.csci152.students.classes.Student;
 import java.util.ArrayList;
 import java.util.List;
 
+/* A Broker is the in-between 'message' sender
+* between the Publisher 'Professor' and the
+* Subscribers 'Students' This class in particular
+* works with Assessments and Students */
 public class AssessmentBroker implements Broker {
 
 
@@ -44,9 +48,7 @@ public class AssessmentBroker implements Broker {
 
     @Override
     public void dropSubscriber(Student subscriber) {
-        if(this.subscribers.contains(subscriber)){
-            this.subscribers.remove(subscriber);
-        }
+        this.subscribers.remove(subscriber);
     }
 
 }

@@ -44,7 +44,7 @@ public class Controller{
 
         Professor alex
                 =   new Professor("Alex",
-                    new AssessmentBroker());
+                    new AssessmentBroker(), new GraderUtil());
 
         Student ryan = new CSCI152Student("Ryan", alex);
         Student marc = new CSCI152Student("Marc", alex);
@@ -52,7 +52,7 @@ public class Controller{
         alex.getBroker().addSubscriber(ryan);
         alex.getBroker().addSubscriber(marc);
         /* Professor Publishes assignment*/
-        alex.publishAssessment(newAssessment, graderUtil);
+        alex.publishAssessment(newAssessment, factory.getAnswerKey());
 
         alex.getBroker().dropSubscriber(ryan);
         factory.reset();
@@ -74,7 +74,7 @@ public class Controller{
 
         graderUtil.setAnswerKey(factory.getAnswerKey());
 
-        alex.publishAssessment(newAssessment, graderUtil);
+        alex.publishAssessment(newAssessment, factory.getAnswerKey());
 
     }
 }

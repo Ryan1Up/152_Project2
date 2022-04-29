@@ -4,6 +4,13 @@ import com.ryan.csci152.assessments.interfaces.IReport;
 
 import java.util.UUID;
 
+/* A Report is a summary of an Assessment, that contains
+* the grade, A description of Correct/Incorrect answers
+* The assigned student
+*
+* This class is simply a container of an IReport
+* type object
+* */
 public class Report implements IReport {
 
     private Integer grade;
