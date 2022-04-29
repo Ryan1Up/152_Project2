@@ -12,4 +12,6 @@ public interface Broker {
 
     void publishResults(IReport report);
 
+    void dropSubscriber(Student subscriber);
+
 }

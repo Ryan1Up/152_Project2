@@ -43,7 +43,7 @@ public class CSCI152Student extends Student{
     }
 
     /* I didn't program anything to interactively take the test
-    * So i made a randomized answering utility*/
+    * So I made a randomized answering utility*/
     @Override
     public void doAssessment() {
         System.out.println("Assignment in progress");
@@ -56,9 +56,9 @@ public class CSCI152Student extends Student{
     @Override
     public void sendResults(IReport results) {
         this.results = results;
-        System.out.println(("Results received for: %s").formatted(getName()));
-        System.out.println("Printing out Results...\n\n");
 
+        System.out.println(("Results received for: %s").formatted(getName()));
+        System.out.println("Printing out Results...\n");
         System.out.println(results.getDescription());
     }
 

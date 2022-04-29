@@ -1,6 +1,8 @@
 package com.ryan.csci152;
 
+import com.ryan.csci152.Util.classes.AssessmentFactory;
 import com.ryan.csci152.Util.classes.GraderUtil;
+import com.ryan.csci152.Util.interfaces.AssessmentCompiler;
 import com.ryan.csci152.assessments.classes.BasicAssessment;
 import com.ryan.csci152.assessments.classes.Question;
 import com.ryan.csci152.assessments.interfaces.Assessment;
@@ -19,40 +21,59 @@ public class Controller{
 
 
         GraderUtil<Integer> graderUtil = new GraderUtil<>();
-        HashMap<IQuestion<Integer>, Integer> answerKey = new HashMap<>();
 
+        AssessmentCompiler<Integer> factory = new AssessmentFactory<>();
         String question1 = "Question 1?"; Integer answer1 = 1;
-        Question<Integer> q1 = new Question<>(question1, answer1);
-        answerKey.put(q1, answer1);
-
         String question2 = "Question 2?"; Integer answer2 = 1;
-        Question<Integer> q2 = new Question<>(question2, answer2);
-        answerKey.put(q2, answer2);
-
         String question3 = "Question 3?"; Integer answer3 = 1;
-        Question<Integer> q3 = new Question<>(question3, answer3);
-        answerKey.put(q3, answer3);
-
         String question4 = "Question 4?"; Integer answer4 = 1;
-        Question<Integer> q4 = new Question<>(question4, answer4);
-        answerKey.put(q4, answer4);
+        factory.addQuestions(
+                List.of(
+                        new Question<>(question1, answer1),
+                        new Question<>(question2, answer2),
+                        new Question<>(question3, answer3),
+                        new Question<>(question4, answer4)
+                )
+        );
+
 
         /* Make answer Key */
-        graderUtil.setAnswerKey(answerKey);
+        graderUtil.setAnswerKey(factory.getAnswerKey());
 
-        Assessment<Integer> newAssessment = new BasicAssessment<>();
-        newAssessment.addQuestions(List.of(q1, q2, q3, q4));
+        Assessment<IQuestion<Integer>> newAssessment = factory.getAssessment();
 
         Professor alex
                 =   new Professor("Alex",
                     new AssessmentBroker());
 
         Student ryan = new CSCI152Student("Ryan", alex);
-
+        Student marc = new CSCI152Student("Marc", alex);
         /* Student subscribe to professor*/
         alex.getBroker().addSubscriber(ryan);
-
+        alex.getBroker().addSubscriber(marc);
         /* Professor Publishes assignment*/
+        alex.publishAssessment(newAssessment, graderUtil);
+
+        alex.getBroker().dropSubscriber(ryan);
+        factory.reset();
+
+        String question5 = "Question 5?"; Integer answer5 = 1;
+        String question6 = "Question 6?"; Integer answer6 = 4;
+        String question7 = "Question 7?"; Integer answer7 = 3;
+        String question8 = "Question 8?"; Integer answer8 = 2;
+        factory.addQuestions(
+                List.of(
+                        new Question<>(question5, answer5),
+                        new Question<>(question6, answer6),
+                        new Question<>(question7, answer7),
+                        new Question<>(question8, answer8)
+                )
+        );
+
+        newAssessment = factory.getAssessment();
+
+        graderUtil.setAnswerKey(factory.getAnswerKey());
+
         alex.publishAssessment(newAssessment, graderUtil);
 
     }

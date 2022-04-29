@@ -10,7 +10,8 @@ import java.util.List;
 
 public class AssessmentBroker implements Broker {
 
-    List<Student> subscribers;
+
+    private final List<Student> subscribers;
 
     public AssessmentBroker() {
         subscribers = new ArrayList<>();
@@ -38,6 +39,13 @@ public class AssessmentBroker implements Broker {
                 System.out.println(("Broker Sending results to: %s").formatted(s.getName()));
                 s.sendResults(report);
             }
+        }
+    }
+
+    @Override
+    public void dropSubscriber(Student subscriber) {
+        if(this.subscribers.contains(subscriber)){
+            this.subscribers.remove(subscriber);
         }
     }
 
