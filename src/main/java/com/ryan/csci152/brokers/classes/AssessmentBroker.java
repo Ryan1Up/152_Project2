@@ -3,7 +3,7 @@ package com.ryan.csci152.brokers.classes;
 import com.ryan.csci152.assessments.interfaces.Assessment;
 import com.ryan.csci152.assessments.interfaces.IReport;
 import com.ryan.csci152.brokers.interfaces.Broker;
-import com.ryan.csci152.students.classes.Student;
+import com.ryan.csci152.students.intercases.Assignee;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,14 +15,14 @@ import java.util.List;
 public class AssessmentBroker implements Broker {
 
 
-    private final List<Student> subscribers;
+    private final List<Assignee> subscribers;
 
     public AssessmentBroker() {
         subscribers = new ArrayList<>();
     }
 
     @Override
-    public void addSubscriber(Student subscriber) {
+    public void addSubscriber(Assignee subscriber) {
         if(!subscribers.contains(subscriber)){
             subscribers.add(subscriber);
         }
@@ -30,7 +30,7 @@ public class AssessmentBroker implements Broker {
 
     @Override
     public void publishAssessment(Assessment assessment) {
-        for(Student s : subscribers){
+        for(Assignee s : subscribers){
             System.out.println(("Broker Sending assignment to: %s").formatted(s.getName()));
             s.assign(assessment);
         }
@@ -38,7 +38,7 @@ public class AssessmentBroker implements Broker {
 
     @Override
     public void publishResults(IReport report) {
-        for(Student s : subscribers){
+        for(Assignee s : subscribers){
             if(s.getId().equals(report.getId())){
                 System.out.println(("Broker Sending results to: %s").formatted(s.getName()));
                 s.sendResults(report);
@@ -47,7 +47,7 @@ public class AssessmentBroker implements Broker {
     }
 
     @Override
-    public void dropSubscriber(Student subscriber) {
+    public void dropSubscriber(Assignee subscriber) {
         this.subscribers.remove(subscriber);
     }
 
