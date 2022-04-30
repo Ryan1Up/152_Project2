@@ -20,9 +20,7 @@ import java.util.UUID;
 * */
 public class BasicAssessment<Value> implements Assessment<Value> {
 
-    /*Not doing a tree structure, I personally feel that a bit too much
-    * for a 'small' project assigned right on top the term project
-    *
+    /*
     * My general approach to a tree structured SET of Question
     * objects would have been to flatten it. I'm skipping that step
     * and going directly to the end result*/
