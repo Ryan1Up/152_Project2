@@ -51,3 +51,18 @@ This is to allow the GraderUtil to be replaced by anything else that implements 
 it improved on the maintainability of the code, and attempted to adhere to the single responsibilty principle. The next step in the flow would have the Professor
 publish the results to the Broker, and again the Broker sends them out to the assignees. This implementation of 'Broker' restricts the send of the Report ONLY  
 to the desired recipient.
+  
+    
+## Summary  
+In this project the Publisher-Subscriber pattern was followed to transmit 1 assessment to a number of unknown recipients. Looking at the UML's provided, it is seen
+that no two classes inversely depended upon each other. This was accomplied by following the Dependency Inversion principle as well as the Interface Segregation 
+principle of the Solid Principles. In addition, Tasks like 'Grading' were extracted to their own class to adhere to the single responsibility principle, however a 
+class like 'Professor' may violate this as it has multiple responsibilities. Coupling was minimized as much as possible, most components do not know about the 
+existence of other components. The Student does not know about the Broker, the Broker does not know about the Professor, and the Professor does not know about the 
+Student. 
+
+There was however, one connection I could not avoid, and that was the Student had to know about the Grader. It is possible to abstract the Grader into the Assessment 
+class and maintain effective functionality, however this was decided against as the Assessment would know about its Creator as well as it's creator knowing about it,
+which I felt caused unneccessary coupling.  
+
+The 'TestTaker' class was left out of the UML's as it was not necessary, but you will find it in the code. This too is implemented to an interface, and to change the TestTaker the student class uses would take the change of the line of code that instantiates it within the Student. Again using a TestTaker was optional, and was done so only to automatically complete the test to ensure data traversed the code properly.
