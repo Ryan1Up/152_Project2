@@ -3,7 +3,7 @@ package com.ryan.csci152.brokers.classes;
 import com.ryan.csci152.assessments.interfaces.Assessment;
 import com.ryan.csci152.assessments.interfaces.IReport;
 import com.ryan.csci152.brokers.interfaces.Broker;
-import com.ryan.csci152.students.intercases.Assignee;
+import com.ryan.csci152.students.interfaces.Assignee;
 
 import java.util.ArrayList;
 import java.util.List;
