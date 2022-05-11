@@ -3,6 +3,17 @@ package com.ryan.csci152_2.Assessment;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Question class represents a composite data structure
+ * based on a Doubly Linked list. Each Question
+ * has a reference to a 'next' Question and a 'prev'
+ * (previous) Question. Each Question contains an Answer
+ * and a String representation of the Query itself.
+ *
+ * A Builder is provided by this class to make implementation
+ * simpler. Question also supplies a Deep Copy through it's
+ * clone() method.
+ * */
 public class Question implements IQuestion{
 
     private final String question;
@@ -89,9 +100,8 @@ public class Question implements IQuestion{
         public IQuestion build() {
             return root;
         }
-
-
     }
+
 
     @Override
     public IQuestion clone() {
@@ -101,8 +111,10 @@ public class Question implements IQuestion{
             questions.add(root.getQuestion());
             root = root.next();
         }
+
         IQuestionBuilder builder = new QuestionBuilder();
         questions.forEach(builder::addQuestion);
+
         return builder.build();
     }
 }

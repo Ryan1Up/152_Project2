@@ -1,6 +1,15 @@
 package com.ryan.csci152_2.Assessment;
 
-public interface IQuestion extends Cloneable{
+/**
+ * IQuestion extends the Cloneable interface.
+ * An IQuestion is assumed to store a String Query
+ * that represents a 'Test Question', and stores
+ * an 'Answer'.
+ *
+ * A class that implements this interface should also
+ * do 2 other things. 1 Provide a Builder, 2. Provide a deep
+ * clone of the IQuestion Object.*/
+public interface IQuestion extends Cloneable {
 
     String getQuestion();
 
@@ -13,4 +22,6 @@ public interface IQuestion extends Cloneable{
     IQuestion prev();
 
     IQuestionBuilder getBuilder();
+
+    IQuestion clone();
 }

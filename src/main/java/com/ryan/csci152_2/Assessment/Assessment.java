@@ -43,9 +43,10 @@ public class Assessment implements IAssessment{
         }
     }
 
+    /* Return a fresh set of questions*/
     @Override
     public IQuestion getQuestions(){
-        return questions;
+        return questions.clone();
     }
 
     /* send this assessment to the grader, and
@@ -58,7 +59,7 @@ public class Assessment implements IAssessment{
     /* Assignees Subscribe themselves to this Assessment,
     * but are only allowed to subscribe once!*/
     @Override
-    public void subscribe(Assignee assignee) {
+    public void subscribe(Assignee assignee) throws IllegalStateException {
         if(roster.contains(assignee)){
             throw new IllegalStateException("Assignee already subscribed!");
         }
