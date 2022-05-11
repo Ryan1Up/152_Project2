@@ -11,9 +11,8 @@ import java.util.Map;
 
 public class Professor implements Publisher, Grader, AssessmentCreator{
 
-    private Map<String, Integer> answerKey;
-    private GradingUtil gradingUtil;
-    private IAssessmentBuilder assessmentBuilder;
+    private final GradingUtil gradingUtil;
+    private final IAssessmentBuilder assessmentBuilder;
     private IAssessment assessment;
 
     public Professor(GradingUtil gradingUtil, IAssessmentBuilder assessmentBuilder){
