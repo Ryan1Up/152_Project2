@@ -15,7 +15,7 @@ public class ReportBuilder{
                 report.append(q).append("\n");
 
                 Integer a = questions.getAnswer();
-                report.append("Answer:").append(a);
+                report.append("Answer: ").append(a);
 
                 if (answerKey.get(q).equals(a)) {
                     report.append(" - Correct!");
