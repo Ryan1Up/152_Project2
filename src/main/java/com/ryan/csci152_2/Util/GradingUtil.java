@@ -1,12 +1,15 @@
 package com.ryan.csci152_2.Util;
 
 import com.ryan.csci152_2.Assessment.IQuestion;
+import com.ryan.csci152_2.Report.IReport;
 
 import java.util.Map;
 
 public interface GradingUtil {
 
-    /* This applies an Answer Key and prints out the results */
-    void gradeAssessment(IQuestion questions, Map<String, Integer> answerKey);
+
+    void setAnswerKey(Map<String, Integer> answerKey);
+
+    IReport gradeAssessment(IQuestion questions, String source);
 
 }

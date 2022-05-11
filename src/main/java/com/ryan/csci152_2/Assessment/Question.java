@@ -75,6 +75,7 @@ public class Question implements IQuestion{
         while(current.prev() != null){
             current = current.prev();
         }
+
         return current;
     }
 

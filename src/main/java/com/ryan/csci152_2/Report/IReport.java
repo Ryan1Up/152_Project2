@@ -6,7 +6,6 @@ import java.util.Map;
 
 public interface IReport {
 
-    IReport buildReport(Map<String, Integer> answerKey, IQuestion questions, String source);
 
     String getReportString();
 
