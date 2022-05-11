@@ -1,17 +1,12 @@
 package com.ryan.csci152_2.Professor;
 
 import com.ryan.csci152_2.Assessment.IAssessment;
-import com.ryan.csci152_2.Student.Assignee;
 
 import java.util.Map;
 
 public interface AssessmentCreator {
 
     void createAssessment(Map<String, Integer> assessmentQuestionsAndAnswer, IAssessment blankAssessment);
-
-    default void registerAssignee(Assignee assignee){
-        return;
-    };
 
     IAssessment getAssessment();
 }
