@@ -18,6 +18,10 @@ public class Question implements IQuestion{
 
     private final String question;
     private Integer answer;
+
+    /* Due to IQuestion interface, each question should have both a prev, and next
+    * therefore these are both IQuestions, though it would be legal to declare them
+    * as Question, this declaration is purely for clarity*/
     private final IQuestion prev;
     private IQuestion next;
 
