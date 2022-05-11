@@ -104,3 +104,22 @@ A similar method was used for Assessment Building. As it is a complicated proces
   
 **Assessment Aggregation**  
 ![Assessment Aggregation](https://raw.githubusercontent.com/Ryan1Up/152_Project2/main/studentV3_UML.png)
+
+**Assessment Builder Dependencies**  
+![Assessment Builder](https://raw.githubusercontent.com/Ryan1Up/152_Project2/main/assessmentBuilderDependencyV3.png)  
+
+**Assessment Dependencies**  
+![Assessment Dependencies](https://raw.githubusercontent.com/Ryan1Up/152_Project2/main/assessmentDependenciesV3.png)  
+
+**Grading Utility Dependencies**  
+![Grading Utility](https://raw.githubusercontent.com/Ryan1Up/152_Project2/main/gradingUtilDependencyV3.png)  
+
+**Professor Dependencies**  
+![Professor Dependencies](https://raw.githubusercontent.com/Ryan1Up/152_Project2/main/professorDependencyV3.png)  
+
+**Report Dependencies**  
+![Report](https://raw.githubusercontent.com/Ryan1Up/152_Project2/main/reportDependencyV3.png)  
+
+**Student Dependencies**  
+![Student](https://raw.githubusercontent.com/Ryan1Up/152_Project2/main/studentDependencyV3.png)  
+
