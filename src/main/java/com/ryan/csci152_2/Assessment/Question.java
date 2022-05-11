@@ -26,32 +26,38 @@ public class Question implements IQuestion{
 
     @Override
     public String getQuestion() {
-        return null;
+        return question;
     }
 
     @Override
     public void answerQuestion(Integer answer) {
-
+        if(answer < 0 || answer > 4){
+            throw new IllegalStateException("Answer out of bounds!");
+        }
+        this.answer = answer;
     }
 
     @Override
     public Integer getAnswer() {
-        return null;
+        if (answer != null){
+            return answer;
+        }
+        throw new IllegalStateException("No answer defined!");
     }
 
     @Override
     public IQuestion next() {
-        return null;
+        return this.next;
     }
 
     @Override
     public IQuestion prev() {
-        return null;
+        return this.prev;
     }
 
     @Override
-    public QuestionBuilder getBuilder() {
-        return null;
+    public IQuestionBuilder getBuilder() {
+        return new QuestionBuilder();
     }
 
     public static class QuestionBuilder implements IQuestionBuilder{
@@ -71,7 +77,7 @@ public class Question implements IQuestion{
                 current = root;
             }else{
                 current.next = new Question(question, current);
-                current = (Question) current.next();
+                current = (Question) current.next;
             }
             return this;
         }

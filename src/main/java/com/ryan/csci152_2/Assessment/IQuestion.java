@@ -12,5 +12,5 @@ public interface IQuestion {
 
     IQuestion prev();
 
-    Question.QuestionBuilder getBuilder();
+    IQuestionBuilder getBuilder();
 }
