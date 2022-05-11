@@ -3,9 +3,8 @@ package com.ryan.csci152_2.Professor;
 import com.ryan.csci152_2.Assessment.IAssessment;
 import com.ryan.csci152_2.Assessment.IQuestion;
 import com.ryan.csci152_2.Report.IReport;
-import com.ryan.csci152_2.Student.Assignee;
-import com.ryan.csci152_2.Util.IAssessmentBuilder;
 import com.ryan.csci152_2.Util.GradingUtil;
+import com.ryan.csci152_2.Util.IAssessmentBuilder;
 
 import java.util.Map;
 
@@ -37,13 +36,6 @@ public class Professor implements Publisher, Grader, AssessmentCreator{
         this.assessment = assessmentBuilder
                 .fillAssessmentQuestionsFromList(blankAssessment, assessmentQuestionsAndAnswer.keySet());
         this.assessment.setGrader(this);
-    }
-
-    @Override
-    public void registerAssignee(Assignee assignee) {
-        if(this.assessment != null){
-            this.assessment.subscribe(assignee);
-        }
     }
 
     @Override

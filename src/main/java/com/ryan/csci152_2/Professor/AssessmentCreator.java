@@ -9,7 +9,9 @@ public interface AssessmentCreator {
 
     void createAssessment(Map<String, Integer> assessmentQuestionsAndAnswer, IAssessment blankAssessment);
 
-    void registerAssignee(Assignee assignee);
+    default void registerAssignee(Assignee assignee){
+        return;
+    };
 
     IAssessment getAssessment();
 }
