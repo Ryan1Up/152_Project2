@@ -98,8 +98,11 @@ public class Question implements IQuestion{
             current = null;
         }
 
+        /**
+         * Returns a reference to Itself after updating its 'current' node's
+         * 'next' value, and iterating 'current' to it's 'next' value*/
         @Override
-        public QuestionBuilder addQuestion(String question){
+        public IQuestionBuilder addQuestion(String question){
             if(root == null){
                 root = new Question(question);
                 current = root;
