@@ -17,11 +17,6 @@ public class Assessment implements IAssessment{
     /* Reference to the Object that 'grades' the assignment*/
     private Grader grader;
 
-    public Assessment() {
-        this.roster = new ArrayList<>();
-        this.questions = null;
-        grader = null;
-    }
 
     public Assessment(IQuestion questions){
         this.roster = new ArrayList<>();

@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface AssessmentCreator {
 
-    void createAssessment(Map<String, Integer> assessmentQuestionsAndAnswer);
+    void createAssessment(Map<String, Integer> assessmentQuestionsAndAnswer, IAssessment blankAssessment);
 
     void registerAssignee(Assignee assignee);
 

@@ -7,16 +7,15 @@ import java.util.Set;
 public class AssessmentBuilder implements IAssessmentBuilder{
 
     @Override
-    public IAssessment buildAssessmentFromList(Set<String> questions) {
+    public IAssessment fillAssessmentQuestionsFromList(IAssessment blankAssessment, Set<String> questions) {
 
-        IQuestion question = new Question(null, null);
-        IQuestionBuilder builder = question.getBuilder();
+        IQuestionBuilder builder = blankAssessment.getQuestions().getBuilder();
 
         for(String q : questions){
             builder.addQuestion(q);
         }
-        question = builder.build();
 
-        return new Assessment(question);
+        blankAssessment.setQuestions(builder.build());
+        return blankAssessment;
     }
 }

@@ -7,7 +7,6 @@ import com.ryan.csci152_2.Student.Assignee;
 import com.ryan.csci152_2.Util.IAssessmentBuilder;
 import com.ryan.csci152_2.Util.GradingUtil;
 
-import java.util.List;
 import java.util.Map;
 
 public class Professor implements Publisher, Grader, AssessmentCreator{
@@ -34,10 +33,10 @@ public class Professor implements Publisher, Grader, AssessmentCreator{
     }
 
     @Override
-    public void createAssessment(Map<String, Integer> assessmentQuestionsAndAnswer) {
+    public void createAssessment(Map<String, Integer> assessmentQuestionsAndAnswer, IAssessment blankAssessment) {
         gradingUtil.setAnswerKey(assessmentQuestionsAndAnswer);
         this.assessment = assessmentBuilder
-                .buildAssessmentFromList(assessmentQuestionsAndAnswer.keySet());
+                .fillAssessmentQuestionsFromList(blankAssessment, assessmentQuestionsAndAnswer.keySet());
         this.assessment.setGrader(this);
     }
 

@@ -1,5 +1,7 @@
 package com.ryan.csci152_2;
 
+import com.ryan.csci152_2.Assessment.Assessment;
+import com.ryan.csci152_2.Assessment.Question;
 import com.ryan.csci152_2.Professor.Professor;
 import com.ryan.csci152_2.Student.Student;
 import com.ryan.csci152_2.Student.Undergrad;
@@ -30,7 +32,7 @@ public class Controller {
         questions.put("Question 3.b.3.", 4);
 
         // 'Professor creates assessments'
-        alex.createAssessment(questions);
+        alex.createAssessment(questions, new Assessment(new Question(null, null)));
 
         // 'Self' subscribe to assessment
         ryan.subscribeToAssessment(alex.getAssessment());

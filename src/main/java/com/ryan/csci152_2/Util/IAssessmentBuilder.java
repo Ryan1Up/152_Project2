@@ -7,6 +7,6 @@ import java.util.Set;
 
 public interface IAssessmentBuilder {
 
-    IAssessment buildAssessmentFromList(Set<String> questions);
+    IAssessment fillAssessmentQuestionsFromList(IAssessment assessment, Set<String> questions);
 
 }
