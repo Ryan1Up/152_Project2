@@ -34,4 +34,9 @@ public class Undergrad extends Student{
     public void submit() {
         super.getAssessment().sendToGrader(super.getName(), super.getQuestions());
     }
+
+    @Override
+    public void subscribeToAssessment(IAssessment assessment) {
+        assessment.subscribe(this);
+    }
 }

@@ -7,9 +7,9 @@ import java.util.Map;
 public class ReportBuilder{
 
     public static IReport buildReport(Map<String, Integer> answerKey, IQuestion questions, String source) {
-        StringBuilder report = new StringBuilder("Name: " + source);
+        StringBuilder report = new StringBuilder("Name: " + source + "\n");
         int score = 0;
-        while (questions != null) {
+        while (questions.next() != null) {
             try {
                 String q = questions.getQuestion();
                 report.append(q).append("\n");
@@ -18,10 +18,10 @@ public class ReportBuilder{
                 report.append("Answer:").append(a);
 
                 if (answerKey.get(q).equals(a)) {
-                    report.append("\nCorrect!");
+                    report.append(" - Correct!");
                     score++;
                 } else {
-                    report.append("\nIncorrect!")
+                    report.append(" - Incorrect!")
                             .append("\nCorrect Answer: ")
                             .append(answerKey.get(q));
                 }
@@ -31,6 +31,8 @@ public class ReportBuilder{
             }
             questions = questions.next();
         }
+
+        report.append("\nTotal Score: ").append(score);
 
         return new Report(report.toString(), score, source);
     }

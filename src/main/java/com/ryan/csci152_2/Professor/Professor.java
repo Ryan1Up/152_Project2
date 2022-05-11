@@ -47,4 +47,9 @@ public class Professor implements Publisher, Grader, AssessmentCreator{
             this.assessment.subscribe(assignee);
         }
     }
+
+    @Override
+    public IAssessment getAssessment() {
+        return this.assessment;
+    }
 }
