@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * The Question class represents a composite data structure
- * based on a Doubly Linked list. Each Question
+ * loosely based on a Doubly Linked list. Each Question
  * has a reference to a 'next' Question and a 'prev'
  * (previous) Question. Each Question contains an Answer
  * and a String representation of the Query itself.
@@ -67,6 +67,15 @@ public class Question implements IQuestion{
     @Override
     public IQuestion prev() {
         return this.prev;
+    }
+
+    @Override
+    public IQuestion getRoot() {
+        IQuestion current = this;
+        while(current.prev() != null){
+            current = current.prev();
+        }
+        return current;
     }
 
     @Override

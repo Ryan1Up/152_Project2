@@ -21,6 +21,8 @@ public interface IQuestion extends Cloneable {
 
     IQuestion prev();
 
+    IQuestion getRoot();
+
     IQuestionBuilder getBuilder();
 
     IQuestion clone();

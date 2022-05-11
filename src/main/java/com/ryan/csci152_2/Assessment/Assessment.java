@@ -9,7 +9,8 @@ import java.util.List;
 public class Assessment implements IAssessment{
 
     private final List<Assignee> roster;
-    /* 'questions' is a composite data structure that
+    /**
+    *'questions' is a composite data structure that
     * allows a 'SET' of questions by using inner pointers to other questions
     * */
     private IQuestion questions;
@@ -43,7 +44,13 @@ public class Assessment implements IAssessment{
         }
     }
 
-    /* Return a fresh set of questions*/
+    /**
+     * As the Questions are expected to be answered by some number
+     * of assignees, provide a deep copy of the Questions so each
+     * assignee does not get the same 'Question' object, but instead
+     * receives their own reference
+     *
+     * @return IQuestion*/
     @Override
     public IQuestion getQuestions(){
         return questions.clone();
@@ -52,7 +59,7 @@ public class Assessment implements IAssessment{
     /* send this assessment to the grader, and
     * for this code, incidentally, is also the publisher*/
     @Override
-    public void sendToGrader(String source) {
+    public void sendToGrader(String source, IQuestion questions){
         grader.gradeAssessment(questions, source);
     }
 

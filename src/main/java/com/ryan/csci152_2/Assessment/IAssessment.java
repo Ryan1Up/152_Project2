@@ -10,7 +10,7 @@ public interface IAssessment {
 
     IQuestion getQuestions();
 
-    void sendToGrader(String source);
+    void sendToGrader(String source, IQuestion answers);
 
     void subscribe(Assignee assignee) throws IllegalStateException;
 
