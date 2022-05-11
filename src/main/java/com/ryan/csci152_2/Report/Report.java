@@ -1,9 +1,5 @@
 package com.ryan.csci152_2.Report;
 
-import com.ryan.csci152_2.Assessment.IQuestion;
-
-
-import java.util.Map;
 
 public record Report(String reportString, Integer score,
                      String source) implements IReport {
