@@ -37,8 +37,13 @@ public class Controller {
         // 'Self' subscribe to assessment
         ryan.subscribeToAssessment(alex.getAssessment());
 
+        /* 'Publish' assessment, this starts the flow outlined
+        * in the assignment pdf.
+        * -> publish
+        * -> student receives assessment and completes it
+        * -> student returns to professor
+        * -> professor grades assessment
+        * -> print out report, but this could be changed to return to the student if wanted*/
         alex.publish();
-
-
     }
 }
