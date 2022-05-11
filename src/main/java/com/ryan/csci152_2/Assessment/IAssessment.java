@@ -8,9 +8,11 @@ public interface IAssessment {
 
     void notifyRoster();
 
-    void returnToSender();
+    IQuestion getQuestions();
 
-    void subscribe(Assignee assignee);
+    void sendToGrader(String source);
+
+    void subscribe(Assignee assignee) throws IllegalStateException;
 
     void setGrader(Grader grader);
 

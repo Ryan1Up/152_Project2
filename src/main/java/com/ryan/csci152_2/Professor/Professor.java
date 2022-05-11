@@ -1,13 +1,13 @@
 package com.ryan.csci152_2.Professor;
 
-import com.ryan.csci152_2.Assessment.IAssessment;
+import com.ryan.csci152_2.Assessment.IQuestion;
 
 public class Professor implements Publisher, Grader{
 
 
 
     @Override
-    public void gradeAssessment(IAssessment assessment) {
+    public void gradeAssessment(IQuestion questions, String name) {
 
     }
 

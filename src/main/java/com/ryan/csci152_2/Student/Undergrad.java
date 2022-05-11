@@ -5,7 +5,7 @@ import com.ryan.csci152_2.Assessment.IAssessment;
 public class Undergrad extends Student{
 
 
-    Undergrad(String name){
+    public Undergrad(String name){
         super.name = name;
     }
 
@@ -17,7 +17,7 @@ public class Undergrad extends Student{
 
     @Override
     public void submit() {
-        assessment.returnToSender();
+        assessment.sendToGrader(super.name);
     }
 
     @Override
