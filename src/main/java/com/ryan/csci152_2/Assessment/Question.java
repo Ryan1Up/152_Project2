@@ -121,6 +121,12 @@ public class Question implements IQuestion{
     }
 
 
+    /**
+     * clone will return a 'deep' copy of the IQuestion
+     * This ensures that whatever clone is assigned answers
+     * will not interfere with the original
+     *
+     * @return IQuestion*/
     @Override
     public IQuestion clone() {
         IQuestion root = this;
