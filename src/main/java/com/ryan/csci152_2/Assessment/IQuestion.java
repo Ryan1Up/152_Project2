@@ -1,12 +1,12 @@
 package com.ryan.csci152_2.Assessment;
 
-public interface IQuestion {
+public interface IQuestion extends Cloneable{
 
     String getQuestion();
 
-    void answerQuestion(Integer answer);
+    void answerQuestion(Integer answer) throws IllegalStateException;
 
-    Integer getAnswer();
+    Integer getAnswer() throws IllegalStateException;
 
     IQuestion next();
 

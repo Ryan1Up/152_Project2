@@ -1,10 +1,13 @@
 package com.ryan.csci152_2.Assessment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Question implements IQuestion{
 
-    private String question;
+    private final String question;
     private Integer answer;
-    private IQuestion prev;
+    private final IQuestion prev;
     private IQuestion next;
 
     Question(String question){
@@ -38,7 +41,7 @@ public class Question implements IQuestion{
     }
 
     @Override
-    public Integer getAnswer() {
+    public Integer getAnswer() throws IllegalStateException {
         if (answer != null){
             return answer;
         }
@@ -88,5 +91,18 @@ public class Question implements IQuestion{
         }
 
 
+    }
+
+    @Override
+    public IQuestion clone() {
+        IQuestion root = this;
+        List<String> questions = new ArrayList<>();
+        while(root != null){
+            questions.add(root.getQuestion());
+            root = root.next();
+        }
+        IQuestionBuilder builder = new QuestionBuilder();
+        questions.forEach(builder::addQuestion);
+        return builder.build();
     }
 }
