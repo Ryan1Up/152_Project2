@@ -84,12 +84,12 @@ public class Question implements IQuestion{
         return new QuestionBuilder();
     }
 
-    public static class QuestionBuilder implements IQuestionBuilder{
+    private static class QuestionBuilder implements IQuestionBuilder{
 
         private Question root;
         private Question current;
 
-        QuestionBuilder(){
+        public QuestionBuilder(){
             root = null;
             current = null;
         }

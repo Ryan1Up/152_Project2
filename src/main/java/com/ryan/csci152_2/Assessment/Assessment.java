@@ -29,6 +29,12 @@ public class Assessment implements IAssessment{
         grader = null;
     }
 
+    public Assessment(IQuestion questions, Grader grader) {
+        this.roster = new ArrayList<>();
+        this.questions = questions;
+        this.grader = grader;
+    }
+
     public Assessment(List<Assignee> roster, IQuestion questions, Grader grader) {
         this.roster = roster;
         this.questions = questions;
