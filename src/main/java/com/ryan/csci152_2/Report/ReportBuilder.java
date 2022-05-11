@@ -1,15 +1,13 @@
 package com.ryan.csci152_2.Report;
 
 import com.ryan.csci152_2.Assessment.IQuestion;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
 public class ReportBuilder{
 
-    @Contract("_, _, _ -> new")
-    public static @NotNull IReport buildReport(Map<String, Integer> answerKey, @NotNull IQuestion questions, String source) {
+
+    public static IReport buildReport(Map<String, Integer> answerKey, IQuestion questions, String source) {
         StringBuilder report = new StringBuilder("Name: " + source + "\n");
         int score = 0;
         while (questions.next() != null) {

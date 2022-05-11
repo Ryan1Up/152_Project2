@@ -106,7 +106,8 @@ public class Question implements IQuestion{
             if(root == null){
                 root = new Question(question);
                 current = root;
-            }else{
+            }
+            else{
                 current.next = new Question(question, current);
                 current = (Question) current.next;
             }
