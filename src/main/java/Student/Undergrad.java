@@ -24,7 +24,7 @@ public class Undergrad extends Student{
         IQuestion q = super.getQuestions();
         Random r = new Random();
         while(q.next() != null){
-            q.answerQuestion(r.nextInt(5));
+            q.answerQuestion(1 + r.nextInt(4));
             q = q.next();
         }
         super.setQuestions(q.getRoot());

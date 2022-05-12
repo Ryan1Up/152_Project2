@@ -88,7 +88,7 @@ public class Question implements IQuestion{
         return new QuestionBuilder();
     }
 
-    private static class QuestionBuilder implements IQuestionBuilder{
+    public static class QuestionBuilder implements IQuestionBuilder{
 
         private Question root;
         private Question current;
