@@ -11,13 +11,13 @@ public class ReportBuilder{
     public static IReport buildReport(Map<String, Integer> answerKey, IQuestion questions, String source) {
         StringBuilder report = new StringBuilder("Name: " + source + "\n");
         int score = 0;
-        while (questions.next() != null) {
+        while (true) {
             try {
                 String q = questions.getQuestion();
-                report.append(q).append("\n");
+                report.append(q);
 
                 Integer a = questions.getAnswer();
-                report.append("Answer: ").append(a);
+                report.append("\nAnswer: ").append(a);
 
                 if (answerKey.get(q).equals(a)) {
                     report.append(" - Correct!");
@@ -29,7 +29,10 @@ public class ReportBuilder{
                 }
                 report.append("\n");
             } catch (IllegalStateException e) {
-                report.append("Question not answered...\n");
+                report.append(" not answered...\n");
+            }
+            if(questions.next() == null){
+                break;
             }
             questions = questions.next();
         }
