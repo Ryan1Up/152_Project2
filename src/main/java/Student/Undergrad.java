@@ -1,7 +1,8 @@
-package com.ryan.csci152_2.Student;
+package Student;
 
-import com.ryan.csci152_2.Assessment.IAssessment;
-import com.ryan.csci152_2.Assessment.IQuestion;
+
+import Assessment.IAssessment;
+import Assessment.IQuestion;
 
 import java.util.Random;
 

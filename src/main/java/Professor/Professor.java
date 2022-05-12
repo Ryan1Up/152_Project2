@@ -1,10 +1,11 @@
-package com.ryan.csci152_2.Professor;
+package Professor;
 
-import com.ryan.csci152_2.Assessment.IAssessment;
-import com.ryan.csci152_2.Assessment.IQuestion;
-import com.ryan.csci152_2.Report.IReport;
-import com.ryan.csci152_2.Util.GradingUtil;
-import com.ryan.csci152_2.Util.IAssessmentBuilder;
+import Assessment.IAssessment;
+import Assessment.IQuestion;
+import Report.IReport;
+import Util.GradingUtil;
+import Util.IAssessmentBuilder;
+
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.ryan.csci152_2.Assessment;
+package Assessment;
 
 public interface IQuestionBuilder {
 

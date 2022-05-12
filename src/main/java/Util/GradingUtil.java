@@ -1,7 +1,8 @@
-package com.ryan.csci152_2.Util;
+package Util;
 
-import com.ryan.csci152_2.Assessment.IQuestion;
-import com.ryan.csci152_2.Report.IReport;
+
+import Assessment.IQuestion;
+import Report.IReport;
 
 import java.util.Map;
 

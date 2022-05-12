@@ -1,13 +1,11 @@
-package com.ryan.csci152_2;
 
-import com.ryan.csci152_2.Assessment.Assessment;
-import com.ryan.csci152_2.Assessment.Question;
-import com.ryan.csci152_2.Professor.Professor;
-import com.ryan.csci152_2.Student.Student;
-import com.ryan.csci152_2.Student.Undergrad;
-import com.ryan.csci152_2.Util.AssessmentBuilder;
-import com.ryan.csci152_2.Util.AutoGrader;
-
+import Assessment.Question;
+import Professor.Professor;
+import Student.Student;
+import Student.Undergrad;
+import Util.AssessmentBuilder;
+import Util.AutoGrader;
+import Assessment.Assessment;
 import java.util.HashMap;
 import java.util.Map;
 

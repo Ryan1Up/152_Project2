@@ -1,4 +1,4 @@
-package com.ryan.csci152_2.Report;
+package Report;
 
 
 public record Report(String reportString, Integer score,

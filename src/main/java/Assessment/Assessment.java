@@ -1,7 +1,7 @@
-package com.ryan.csci152_2.Assessment;
+package Assessment;
 
-import com.ryan.csci152_2.Professor.Grader;
-import com.ryan.csci152_2.Student.Assignee;
+import Professor.Grader;
+import Student.Assignee;
 
 import java.util.ArrayList;
 import java.util.List;

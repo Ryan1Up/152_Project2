@@ -1,6 +1,6 @@
-package com.ryan.csci152_2.Student;
+package Student;
 
-import com.ryan.csci152_2.Assessment.IAssessment;
+import Assessment.IAssessment;
 
 public interface Assignee {
 

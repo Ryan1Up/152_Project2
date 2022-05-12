@@ -1,4 +1,4 @@
-package com.ryan.csci152_2.Assessment;
+package Assessment;
 
 import java.util.ArrayList;
 import java.util.List;

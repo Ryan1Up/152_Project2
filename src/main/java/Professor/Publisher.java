@@ -1,4 +1,4 @@
-package com.ryan.csci152_2.Professor;
+package Professor;
 
 public interface Publisher {
 

@@ -1,6 +1,7 @@
-package com.ryan.csci152_2.Util;
+package Util;
 
-import com.ryan.csci152_2.Assessment.*;
+import Assessment.IAssessment;
+import Assessment.IQuestionBuilder;
 
 import java.util.Set;
 

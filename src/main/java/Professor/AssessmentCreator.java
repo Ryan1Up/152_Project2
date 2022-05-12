@@ -1,6 +1,6 @@
-package com.ryan.csci152_2.Professor;
+package Professor;
 
-import com.ryan.csci152_2.Assessment.IAssessment;
+import Assessment.IAssessment;
 
 import java.util.Map;
 
