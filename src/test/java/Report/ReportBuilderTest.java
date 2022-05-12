@@ -109,16 +109,18 @@ class ReportBuilderTest {
     }
     static Stream<Arguments> itShouldBuildReport(){
         return Stream.of(
-            Arguments.of(Map.of("Question", 1, "Question 2", 2),
-                    getCorrectQuestionsFromKey(Map.of("Question", 1,"Question 2", 2)),
-                    "Test",
-                    2,
-                    reportStringWCorrect(Map.of("Question", 1,"Question 2", 2), "Test")),
+            Arguments.of(Map.of("Question", 1, "Question 2", 2),                                 // Answer Key
+                    getCorrectQuestionsFromKey(Map.of("Question", 1,"Question 2", 2)),           // Completed and Correct Answers
+                    "Test",                                                                                    // Source Name
+                    2,                                                                                         // Expected Score
+                    reportStringWCorrect(Map.of("Question", 1,"Question 2", 2), "Test")), // Expected report string
+
             Arguments.of(Map.of("Question", 1),
                     getIncorrectQuestionsFromKey(Map.of("Question", 1)),
                     "Test",
                     0,
                     reportStringWIncorrect(Map.of("Question", 1), "Test")),
+            
             Arguments.of(Map.of("Question", 1),
                     getUnansweredQuestionsFromKey(Map.of("Question", 1)),
                     "Test",
