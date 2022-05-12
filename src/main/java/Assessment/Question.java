@@ -49,7 +49,7 @@ public class Question implements IQuestion{
 
     @Override
     public void answerQuestion(Integer answer) {
-        if(answer < 0 || answer > 4){
+        if(answer < 1 || answer > 4){
             throw new IllegalStateException("Answer out of bounds!");
         }
         this.answer = answer;
@@ -57,10 +57,10 @@ public class Question implements IQuestion{
 
     @Override
     public Integer getAnswer() throws IllegalStateException {
-        if (answer != null){
-            return answer;
+        if (answer == null){
+            throw new IllegalStateException("No answer defined!");
         }
-        throw new IllegalStateException("No answer defined!");
+        return answer;
     }
 
     @Override
