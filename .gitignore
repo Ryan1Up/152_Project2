@@ -2,6 +2,7 @@
 /shelf/
 /.idea/workspace.xml
 
+!pom.xml
 **.xml
 **.iml
 

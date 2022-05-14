@@ -120,7 +120,7 @@ class ReportBuilderTest {
                     "Test",
                     0,
                     reportStringWIncorrect(Map.of("Question", 1), "Test")),
-            
+
             Arguments.of(Map.of("Question", 1),
                     getUnansweredQuestionsFromKey(Map.of("Question", 1)),
                     "Test",
