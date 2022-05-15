@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
@@ -34,6 +35,9 @@ class AssessmentTest {
 
     @Mock
     private static Assignee assignee;
+
+    @Mock
+    private IQuestionBuilder builder;
 
     @Captor
     ArgumentCaptor<Assessment> assessmentArgumentCaptor;
@@ -158,5 +162,14 @@ class AssessmentTest {
         // Then
         IQuestion actual = freshAssessment.getQuestions();
         assertThat(actual).usingRecursiveComparison().isEqualTo(questions);
+    }
+
+    @Test
+    void itShouldGetBuilder(){
+        given(questions.getBuilder()).willReturn(builder);
+
+        IQuestionBuilder actual = underTest.getQuestionBuilder();
+
+        assertEquals(builder, actual);
     }
 }

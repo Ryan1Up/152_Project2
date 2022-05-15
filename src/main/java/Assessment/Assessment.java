@@ -83,4 +83,9 @@ public class Assessment implements IAssessment{
     public void setQuestions(IQuestion questions) {
         this.questions = questions;
     }
+
+    @Override
+    public IQuestionBuilder getQuestionBuilder(){
+        return questions.getBuilder();
+    }
 }

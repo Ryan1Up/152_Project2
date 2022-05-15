@@ -20,6 +20,8 @@ class UndergradTest {
     @Mock
     private IQuestion question;
 
+    @Mock
+    private IQuestion question2;
     private Undergrad underTest;
 
     @BeforeEach
@@ -91,9 +93,10 @@ class UndergradTest {
         // This will also cause a few lines to be skipped because I am not
         // testing the auto-taker function
         doNothing().when(question).answerQuestion(any());
-        doReturn(null).when(question).next();
         doNothing().when(assessment).sendToGrader(any(), any());
-        doReturn(question).when(question).getRoot();
+        doReturn(question).when(question2).getRoot();
+        doReturn(question2).when(question).next();
+        doReturn(null).when(question2).next();
 
         // When
         underTest.notify(assessment);
@@ -103,6 +106,19 @@ class UndergradTest {
         assertEquals(question, underTest.getQuestions());
     }
 
+    @Test
+    void itShouldNotTest() {
+        // Given
+        underTest = new Undergrad("SomeName");
+        given(assessment.getQuestions()).willReturn(null);
+
+        // When
+        underTest.notify(assessment);
+        // Then
+        verify(assessment, times(1)).getQuestions();
+        assertEquals(assessment, underTest.getAssessment());
+        assertNull(underTest.getQuestions());
+    }
     @Test
     void itShouldSubmit() {
         // Given

@@ -10,7 +10,7 @@ public class AssessmentBuilder implements IAssessmentBuilder{
     @Override
     public IAssessment fillAssessmentQuestionsFromList(IAssessment blankAssessment, Set<String> questions) {
 
-        IQuestionBuilder builder = blankAssessment.getQuestions().getBuilder();
+        IQuestionBuilder builder = blankAssessment.getQuestionBuilder();
 
         for(String q : questions){
             builder.addQuestion(q);
