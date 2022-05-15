@@ -22,9 +22,15 @@ public class Undergrad extends Student{
     private void autoCompleteAssessment(){
 
         IQuestion q = super.getQuestions();
+        if(q == null){
+            return;
+        }
         Random r = new Random();
-        while(q.next() != null){
+        while(true){
             q.answerQuestion(1 + r.nextInt(4));
+            if(q.next() == null){
+                break;
+            }
             q = q.next();
         }
         super.setQuestions(q.getRoot());
